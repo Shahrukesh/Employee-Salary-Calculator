@@ -1,0 +1,30 @@
+def calculate_salary(basic_pay, da, hra, ta, deduction_percentage):
+    gross_salary = basic_pay + da + hra + ta
+    total_salary = gross_salary - (gross_salary * (deduction_percentage / 100))  
+    return gross_salary, total_salary
+
+while True:
+    try:
+        
+        basic_pay = float(input("Enter Basic Pay: "))
+        da = float(input("Enter DA: "))
+        hra = float(input("Enter HRA: "))
+        ta = float(input("Enter TA: "))
+        deduction_percentage = float(input("Enter Percentage Deduction (e.g., 10 for 10%): "))
+
+        gross_salary, total_salary = calculate_salary(basic_pay, da, hra, ta, deduction_percentage)
+
+
+        print(f"Basic Pay: {basic_pay}")
+        print(f"DA: {da}")
+        print(f"HRA: {hra}")
+        print(f"TA: {ta}")
+        print(f"Gross Salary: {gross_salary}")
+        print(f"Total Salary after {deduction_percentage}% deduction: {total_salary}")
+
+     
+        continue_input = input("Do you want to calculate another salary? (yes/no): ")
+        if continue_input.lower() != "yes":
+            break
+    except ValueError:
+        print("Please enter a valid number.")
